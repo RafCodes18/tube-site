@@ -1,21 +1,16 @@
 :root {
     /* OLD->   --primary-color: #d4ff00;  fix me
 */
-    --text-color: #fdfaff; /* soft white-lavender */
-    --background-color: #0a0a0f; /* rich cosmic black */
-
-    --primary-color: #ff4dfd; /* bright orchid pink */
-    --primary-color-hover: #ff85ff; /* glowing pink hover */
-
-    --primary-color-card-hover: rgba(255, 173, 252, 0.07); /* soft light pink hover effect */
-
-    --secondary-color: #262c3a; /* deep bluish gray, great for cards/nav */
-
-    --accent-color: #6ecbff; /* dreamy soft aqua blue */
-
-    --primary-color-dark: #300046; /* deep plum base — sexy and royal */
-
-    --join-now-hover: #90e0ff; /* light blue glow — inviting CTA */
+    /*--text-color: #fefcfa;*/ /* pale buttercream — soft and glowy on dark */
+    /*--background-color: #0b0c1a;*/ /* deep starlit navy — inkier than black */
+    /*--primary-color: #a87fff;*/ /* hypnotic lilac — soothing but luminous */
+    /*--primary-color-hover: #d6a3ff;*/ /* enchanted lavender — vibrant on hover */
+    /*--primary-color-card-hover: rgba(186, 133, 255, 0.08);*/ /* soft dreamy mist for hover states */
+    /*--secondary-color: #1c1e2b;*/ /* inky graphite — adds depth and contrast */
+    /*--accent-color: #7fffd4;*/ /* aqua mint — refreshing and slightly magical */
+    /*--primary-color-dark: #3b007a;*/ /* mysterious violet base — powerful and lush */
+    /*--join-now-hover: #9ffff0;*/
+    /* electric pastel teal — eye-catching for CTAs */
     /* --text-color: #fff;
     --background-color: #fff !important;
     --primary-color: rgb(221, 6, 109);
@@ -29,6 +24,29 @@
     --primary-color-hover: #c50606;
     --secondary-color: #991515;
     --accent-color: #f23b3b;*/
+    /*     CYBERPUNK PURPLE BLUE
+*/
+    --text-color: #fff8ee;
+    --background-color: #0b0616;
+    --primary-color: #89f0fc;
+    --primary-color-hover: #b3f9ff;
+    --primary-color-card-hover: rgba(137, 240, 252, 0.06);
+    --secondary-color: #1a1727;
+    --accent-color: #f59bff;
+    --primary-color-dark: #29003e;
+    --join-now-hover: #ffe0fa;
+    --gradient-primary: linear-gradient(135deg, #0a0a0f 0%, #18002e 100%);
+
+
+    /*--text-color: #fef6ff;*/ /* powdered candy */
+    /*--background-color: #050012;*/ /* voidberry black */
+    /*--primary-color: #ff71f2;*/ /* juicy pink */
+    /*--primary-color-hover: #ffb3f9;*/ /* cotton kiss */
+    /*--primary-color-card-hover: rgba(255, 113, 242, 0.07);*/ /* sugar coat */
+    /*--secondary-color: #140620;*/ /* licorice violet */
+    /*--accent-color: #00ffd5;*/ /* bubblegum aqua */
+    /*--primary-color-dark: #5c0066;*/ /* grape gel shadow */
+    /*--join-now-hover: #faffba;*/ /* lemonade milkshake */
 }
 
 * {
@@ -148,7 +166,7 @@ body {
         padding: 17px 4px !important;
     }
     .site-name-logo{
-        font-size: 30px !important;        
+        font-size: 25px !important;        
     }
     .join-now{
         padding-right: 0 !important;
@@ -216,7 +234,7 @@ body {
         max-width: 80vw;
     }
     .site-name-logo {
-        font-size: 28px !important;         
+        font-size: 25px !important;         
      }    
     
 }
@@ -445,3 +463,11 @@ body {
         opacity: 1;
     }
 }
+
+
+
+
+
+
+
+

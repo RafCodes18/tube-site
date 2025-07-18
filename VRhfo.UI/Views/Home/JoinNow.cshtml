@@ -13,21 +13,8 @@
         :root {
             /* OLD->   --primary-color: #d4ff00;  fix me
         */
-            --text-color: #fdfaff; /* soft white-lavender */
-            --background-color: #0a0a0f; /* rich cosmic black */
+      
 
-            --primary-color: #ff4dfd; /* bright orchid pink */
-            --primary-color-hover: #ff85ff; /* glowing pink hover */
-
-            --primary-color-card-hover: rgba(255, 173, 252, 0.07); /* soft light pink hover effect */
-
-            --secondary-color: #262c3a; /* deep bluish gray, great for cards/nav */
-
-            --accent-color: #6ecbff; /* dreamy soft aqua blue */
-
-            --primary-color-dark: #300046; /* deep plum base — sexy and royal */
-
-            --join-now-hover: #90e0ff; /* light blue glow — inviting CTA */
 /*             --text-color: #fff;
             --background-color: #fff !important;
             --primary-color: rgb(221, 6, 109);
@@ -41,6 +28,17 @@
             --primary-color-hover: #c50606;
             --secondary-color: #991515;
             --accent-color: #f23b3b; */
+            
+            --text-color: #fff8ee;
+            --background-color: #0b0616;
+            --primary-color: #89f0fc;
+            --primary-color-hover: #b3f9ff;
+            --primary-color-card-hover: rgba(137, 240, 252, 0.06);
+            --secondary-color: #1a1727;
+            --accent-color: #f59bff;
+            --primary-color-dark: #29003e;
+            --join-now-hover: #ffe0fa;
+            --gradient-primary: linear-gradient(135deg, #0a0a0f 0%, #18002e 100%);
         }
         * {
             margin: 0;
@@ -259,7 +257,7 @@
         }
 
             .cta-button:hover {
-                background: var(--join-now-hover);
+                background: var(--primary-color-hover);
                 transform: translateY(-2px);
             }
 
@@ -268,11 +266,7 @@
             color: #000;
             border: 2px solid var(--primary-color);
         }
-
-            .basic-card .cta-button:hover {
-                background: #6bdd00;
-                color: #000;
-            }
+         
 
         .user-stats {
             margin: 40px 0;
@@ -347,8 +341,8 @@
             }
 
         .selected-plan-summary {
-            background: rgba(127, 255, 0, 0.1);
-            border: 1px solid rgba(127, 255, 0, 0.3);
+            background-color: var(--primary-color-card);
+            border: 1px solid var(--card-border);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 30px;

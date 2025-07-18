@@ -99,11 +99,14 @@ namespace VRhfo.UI.Controllers
             if (currentUser != null)
             {
                 videoViewModel.LoggedInUserId = currentUser.Id;
+                videoViewModel.user = currentUser;
             }
             else
             {
                 //Get the local storage anon GUID
                 videoViewModel.notLoggedInUserId = Guid.Parse(Request.Cookies["userGuid"]);
+
+                videoViewModel.user = await UserManager.LoadByIdAsync(videoViewModel.notLoggedInUserId);
 
             }
 

@@ -66,7 +66,7 @@
             color: #0098cb;
         }
         .custom-navbar {
-            background: linear-gradient(135deg, #0a0a0f 0%, #18002e 100%);
+            background: var(--gradient-primary);
             z-index: 999999 !important;
          }
 
@@ -149,7 +149,8 @@
         }
 
             .join-now:hover {
-                background-color: var(--primary-color);
+                background-color: var(--primary-color-hover);
+                animation: pulse2 4.6s infinite;
             }
 
         .login {
@@ -319,11 +320,26 @@
             margin: 0 !important;
             position: relative;
             margin-top: 15px !importantl;
-        }             
+            animation: glow 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+           /*  color: #ff00aa;
+            color: #ff4dfd; */
+         }
 
 
 
+        @@keyframes glow {
+            0% {
+                text-shadow: 0 0 4px #ff4dfd, 0 0 8px #ff4dfd;
+            }
 
+            50% {
+                text-shadow: 0 0 4px #ff4dfd, 0 0 4px #ff4dfd, 0 0 16px #ff4dfd;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #ff4dfd, 0 0 10px #ff4dfd;
+            }
+        }
 
 
 
@@ -344,7 +360,7 @@
             left:0;
             right: 0;
             top: 20% !important;
-            outline: 1px solid var(--accent-color);
+            outline: 1px solid var(--primary-color);
            
         }
         .login-modal-options {
@@ -488,7 +504,22 @@
     .categories-ul-container{
         list-style-type: none !important;        
     }   
-        
+        @@keyframes pulse2 {
+            0%
+
+        {
+            box-shadow: 0 0 0 rgba(186, 255, 252, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 0 20px rgba(186, 255, 252, 0.6);
+        }
+
+        100% {
+            box-shadow: 0 0 0 rgba(186, 255, 252, 0);
+        }
+
+        }
     .sb-link{
             color: #bbb;
             position: relative;
@@ -506,6 +537,7 @@
             background-color: #393939;
             cursor: pointer;
             color: white;
+                filter: brightness(1.2)
         }
         .sidebar-title{
             color: var(--accent-color);
@@ -638,7 +670,7 @@
             bottom: 0px;
             display: flex;
             justify-content: space-around;
-            background: #121212;
+            background: linear-gradient(135deg, #0a0a0f 0%, #18002e 100%);
             z-index: 9999;
             align-items: center;
             /* Force hardware acceleration */
@@ -846,9 +878,7 @@
 
 
 
-
-
-         /* User Menu Container */
+        /* User Menu Container */
         .user-menu {
             position: relative;
             display: inline-block;
@@ -860,10 +890,10 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.8rem 1.2rem;
-            background: rgba(127, 255, 0, 0.1);
-            border: 1px solid rgba(127, 255, 0, 0.2);
+            background: rgba(255, 77, 253, 0.1);
+            border: 1px solid rgba(255, 77, 253, 0.2);
             border-radius: 25px;
-            color: var(--primary-color);
+            color: #ff4dfd; /* bright orchid pink */
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
@@ -872,33 +902,33 @@
             overflow: hidden;
         }
 
-        .username-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(127, 255, 0, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
+            .username-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 77, 253, 0.2), transparent);
+                transition: left 0.5s ease;
+            }
 
-        .username-btn:hover::before {
-            left: 100%;
-        }
+            .username-btn:hover::before {
+                left: 100%;
+            }
 
-        .username-btn:hover {
-            background: rgba(127, 255, 0, 0.2);
-            border-color: var(--primary-color);
-            box-shadow: var(--btn-hover-shadow);
-            transform: translateY(-2px);
-        }
+            .username-btn:hover {
+                background: rgba(255, 77, 253, 0.2);
+                border-color: #ff4dfd; /* bright orchid pink */
+                box-shadow: var(--btn-hover-shadow);
+                transform: translateY(-2px);
+            }
 
-        .username-btn::after {
-            content: '▼';
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-        }
+            .username-btn::after {
+                content: '▼';
+                font-size: 0.7rem;
+                transition: transform 0.3s ease;
+            }
 
         .user-menu:hover .username-btn::after {
             transform: rotate(180deg);
@@ -910,9 +940,9 @@
             top: calc(100% + 15px);
             right: 0;
             min-width: 220px;
-            background: rgba(38, 39, 39, 0.95);
+            background: rgba(10, 10, 15, 0.95); /* rich cosmic black with opacity */
             backdrop-filter: blur(25px);
-            border: 1px solid rgba(127, 255, 0, 0.2);
+            border: 1px solid rgba(255, 77, 253, 0.2); /* bright orchid pink border */
             border-radius: 16px;
             overflow: hidden;
             display: hidden !important;
@@ -920,32 +950,24 @@
             visibility: hidden;
             transform: translateY(-20px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 30px rgba(127, 255, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 77, 253, 0.1), inset 0 1px 0 rgba(253, 250, 255, 0.1); /* soft white-lavender */
             z-index: 1001;
         }
 
-        /* Dropdown glow effect */
-        .dropdown-menuz::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, 
-                rgba(127, 255, 0, 0.3) 0%, 
-                rgba(127, 255, 0, 0.1) 25%, 
-                transparent 50%, 
-                rgba(127, 255, 0, 0.1) 75%, 
-                rgba(127, 255, 0, 0.3) 100%);
-            border-radius: 18px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
+            /* Dropdown glow effect */
+            .dropdown-menuz::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(45deg, rgba(255, 77, 253, 0.3) 0%, rgba(255, 77, 253, 0.1) 25%, transparent 50%, rgba(255, 77, 253, 0.1) 75%, rgba(255, 77, 253, 0.3) 100%);
+                border-radius: 18px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: -1;
+            }
 
         .user-menu:hover .dropdown-menuz::before {
             opacity: 1;
@@ -964,7 +986,7 @@
             align-items: center;
             gap: 0.8rem;
             padding: 1rem 1.2rem;
-            color: var(--accent-color);
+            color: #6ecbff; /* dreamy soft aqua blue */
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -973,55 +995,52 @@
             overflow: hidden;
         }
 
-        .dropdown-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(127, 255, 0, 0.1), 
-                transparent);
-            transition: left 0.5s ease;
-        }
+            .dropdown-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 77, 253, 0.1), transparent);
+                transition: left 0.5s ease;
+            }
 
-        .dropdown-item:hover::before {
-            left: 100%;
-        }
+            .dropdown-item:hover::before {
+                left: 100%;
+            }
 
-        .dropdown-item:hover {
-            background: rgba(127, 255, 0, 0.08);
-            color: var(--primary-color);
-            transform: translateX(5px);
-            box-shadow: inset 3px 0 0 var(--primary-color);
-        }
+            .dropdown-item:hover {
+                background: rgba(255, 173, 252, 0.07); /* soft light pink hover effect */
+                color: #ff4dfd; /* bright orchid pink */
+                transform: translateX(5px);
+                box-shadow: inset 3px 0 0 #ff4dfd; /* bright orchid pink */
+            }
 
-        /* Icons */
-        .dropdown-item .icon {
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 0 5px rgba(127, 255, 0, 0.3));
-        }
+            /* Icons */
+            .dropdown-item .icon {
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+                filter: drop-shadow(0 0 5px rgba(255, 77, 253, 0.3));
+            }
 
-        .dropdown-item:hover .icon {
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 10px rgba(127, 255, 0, 0.6));
-        }
+            .dropdown-item:hover .icon {
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 10px rgba(255, 77, 253, 0.6));
+            }
 
-        /* Special styling for logout */
-        .dropdown-item.logout {
-            border-top: 1px solid rgba(127, 255, 0, 0.1);
-            color: #ff6b6b;
-            margin-top: 0.5rem;
-        }
+            /* Special styling for logout */
+            .dropdown-item.logout {
+                border-top: 1px solid rgba(255, 77, 253, 0.1);
+                color: #ff6b6b;
+                margin-top: 0.5rem;
+            }
 
-        .dropdown-item.logout:hover {
-            background: rgba(255, 107, 107, 0.1);
-            color: #ff8a8a;
-            box-shadow: inset 3px 0 0 #ff6b6b;
-        }
+                .dropdown-item.logout:hover {
+                    background: rgba(255, 107, 107, 0.1);
+                    color: #ff8a8a;
+                    box-shadow: inset 3px 0 0 #ff6b6b;
+                }
 
         /* Responsive Design */
         @@media (max-width: 768px) {
@@ -1053,6 +1072,45 @@
         .curr-streak{
             color: var(--accent-color) !important;
         }
+
+        .particle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -10px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0.87;
+            filter: blur(2px);
+            animation: floatUp 10s ease-in infinite;
+            box-shadow: 0 0 6px currentColor;
+        }
+
+        @@keyframes floatUp {
+            0%
+
+        {
+            transform: translateY(0) scale(0.8);
+            opacity: 0.6;
+        }
+
+        100% {
+            transform: translateY(-150px) scale(0.4);
+            opacity: 0;
+        }
+
+        }
+
     </style>
 </head>
 <body>
@@ -1073,8 +1131,9 @@
             <div class="link-item">Gooner Store</div>
          </div>
     </div>
+
         <nav class="navbar custom-navbar navbar-expand navbar-toggleable-sm box-shadow " id="navbarr">
-          
+            <div class="particle-bg"></div>
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-lg-row nav-top">
@@ -1271,7 +1330,9 @@
 
 
 
-            <div class="mobile-footer">                
+            <div class="mobile-footer">            
+                            <div class="particle-bg"></div>
+
                 <a asp-action="Index" asp-controller="Video" asp-route-category="Latest" class="footer-item">
                 <span class="footer-icon"><img src="@Url.Content("~/img/home.png")" /></span>
                     <span class="footer-text">Home</span>
@@ -1463,6 +1524,7 @@
     }
     .nav-login-buttons{
         display: flex;
+        margin-top: 5px;
     }
     .sb-link-top{
         margin-top: -2px;
@@ -1567,7 +1629,7 @@
     .login-btn{
          width: 100%; 
          padding: 6px;
-         background-color: var(--accent-color); 
+         background-color: var(--primary-color); 
          border-radius: 6px;
          color: #333 !important;
          font-weight: 700 !important;
@@ -1590,7 +1652,7 @@
     }
 
     .join-now-btn-small:hover {
-       background-color: var(--join-now-hover); 
+       background-color: var(--primary-color); 
        color: #222 !important;
        text-decoration: none;
     }
@@ -1936,5 +1998,21 @@
 
         navigator.sendBeacon('/User/SaveSessionData', JSON.stringify(payload));
     });
+
+
+
+      const particleColors = ['#ff00ff', '#00ffff', '#cc00ff'];
+  const particleBg = document.querySelector('.particle-bg');
+
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDuration = `${4 + Math.random() * 4}s`;
+    particle.style.animationDelay = `${Math.random() * 4}s`;
+    particle.style.background = particleColors[i % particleColors.length];
+    particle.style.color = particle.style.background;
+    particleBg.appendChild(particle);
+  }
 </script>
 

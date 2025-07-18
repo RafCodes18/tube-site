@@ -37,7 +37,7 @@
         text-align: center;
         margin: 0;
         border: none;
-        background-color: transparent;
+        background: linear-gradient( 180deg, rgba(185, 130, 255, 0.25), rgba(120, 170, 255, 0.2), rgba(60, 70, 130, 0.15), rgba(10, 10, 40, 0.3) );
         padding: 0px; /* Moved padding from .card-container to here */
         width: 100%;
         overflow:hidden;
@@ -56,13 +56,12 @@
         box-shadow: 5px 5px 40px 8px var(--primary-color-card-hover);
 
         cursor: pointer;
-        background-color: #282828;
+        background: linear-gradient( 180deg, rgba(185, 130, 255, 0.25), rgba(120, 170, 255, 0.2), rgba(60, 70, 130, 0.15), rgba(10, 10, 40, 0.3) );
         outline: 2px solid rgba(280,280,280, .1);
      }
 
     .description {
-        background: linear-gradient(180deg, rgba(255, 77, 253, 0.2), rgba(110, 203, 255, 0.2));
-        ;
+        background: linear-gradient( 180deg, rgba(185, 130, 255, 0.25), rgba(120, 170, 255, 0.2), rgba(60, 70, 130, 0.15), rgba(10, 10, 40, 0.3) );
         padding: 6px;
         margin: 0;
         font-size: small;
@@ -71,7 +70,7 @@
         color: #888; /* added color white for text visibility on black background */
         height: auto;
     }
-
+ 
     .navbar{
         background-color: #212121;
     }
@@ -481,7 +480,7 @@
                             <div class="title-rating-wrapper">
                                 <h5 class="vid-title">@item.TruncatedTitle</h5>
                                 <div class="vid-rating">
-                                    <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#F8BBD9">
+                                    <svg class="like-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="var(--primary-color)">
                                         <path d="M1 21h4V9H1v12zM23 10.5c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 2 7.59 8.59C7.22 8.95 7 9.45 7 10v9c0 1.1.9 2 2 2h8c.78 0 1.48-.45 1.82-1.12l3.02-6.03c.1-.18.16-.39.16-.6v-2.25z" />
                                     </svg>
                                     <span>@item.AverageRating%</span>
@@ -937,6 +936,12 @@
 
 
          document.addEventListener('DOMContentLoaded', function() {
+        //              const main = document.querySelector('main');
+        //                      const sidebar = document.getElementById('sidebar');
+
+        //                main.classList.add('sidebar-closed');
+        // sidebar.classList.add('closed');
+
         const cards = document.querySelectorAll('.card');
 
         cards.forEach(card => {
