@@ -83,6 +83,7 @@ namespace VRhfo.BL
                     newRow.DatePosted = newComment.DatePosted;  
                     newRow.UserId = newComment.UserId;
                     newRow.VideoId = newComment.VideoId;
+                    newRow.Id = Guid.NewGuid();
                    /* newRow.DislikesCount = 0;
                     newRow.LikesCount = 0;
 */

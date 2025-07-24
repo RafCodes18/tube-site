@@ -299,7 +299,7 @@
             @foreach(var item in Model.VideosWatchedToday)
             {
                 <div class="history-item">
-                    <div class="history-thumbnail"><img height="40" width="30" src="@item.ThumbnailUrl" /></div>
+                    <div class="history-thumbnail"><img height="40" width="50" src="@item.ThumbnailUrl" /></div>
                     <div class="history-info">
                         <div class="history-title">@item.Title</div>
                         <div class="history-duration">@item.FormattedDuration</div>
@@ -333,7 +333,7 @@
             @foreach (var item in Model.RestOfVideosWatched)
             {
                 <div class="history-item">
-                    <div class="history-thumbnail"><img height="40" width="30" src="@item.ThumbnailUrl" /></div>
+                    <div class="history-thumbnail"><img height="40" width="50" src="@item.ThumbnailUrl" /></div>
                     <div class="history-info">
                         <div class="history-title">@item.Title</div>
                         <div class="history-duration">@item.FormattedDuration</div>
@@ -980,7 +980,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(127, 255, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(127, 255, 0, 0.05) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(127, 255, 0, 0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, var(--primary-color-dark) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(127, 255, 0, 0.05) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(127, 255, 0, 0.08) 0%, transparent 50%);
             z-index: -1;
             animation: backgroundPulse 20s ease-in-out infinite;
         }
@@ -1022,7 +1022,7 @@
 
         .profile-header:hover {
             transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(127, 255, 0, 0.1);
+            box-shadow: 0 20px 40px var(--primary-color-dark);
         }
 
     .profile-avatar {
@@ -1046,11 +1046,11 @@
         0%, 100%
 
     {
-        box-shadow: 0 0 20px rgba(127, 255, 0, 0.3);
+        box-shadow: 0 0 10px var(--primary-color-dark)
     }
 
     50% {
-        box-shadow: 0 0 40px rgba(127, 255, 0, 0.6);
+        box-shadow: 0 0 20px var(--primary-color-hover);
     }
 
     }
@@ -1092,9 +1092,9 @@
     }
 
         .tier-box:hover, .date-box:hover {
-            background: rgba(127, 255, 0, 0.1);
+            background: var(--primary-color-dark);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(127, 255, 0, 0.2);
+            box-shadow: 0 5px 15px var(--primary-color-dark);
         }
 
     .tier-label, .date-label {
@@ -1134,8 +1134,9 @@
 
         .stat-card:hover {
             transform: translateY(-2px);
-/*             background: var(--primary-color-card-hover);
- */            /* box-shadow: 0 25px 50px rgba(127, 255, 0, 0.15); */
+            background: var(--primary-color-dark);
+            box-shadow: 5px 5px 40px 8px rgba(255, 133, 255, 0.22);
+            /* box-shadow: 0 25px 50px rgba(127, 255, 0, 0.15); */
         }
 
         .stat-card::before {
@@ -1248,11 +1249,11 @@
     }
 
     .lifetime-stat {
-        background: linear-gradient(135deg, rgba(127, 255, 0, 0.1), rgba(127, 255, 0, 0.05));
+        background: linear-gradient(135deg, var(--primary-color-card-hover), rgba(297, 15, 100, 0.05));
         text-align: center;
         padding: 1.5rem;
         border-radius: 16px;
-        border: 1px solid rgba(127, 255, 0, 0.3);
+        border: 1px solid var(--primary-color-dark);
         position: relative;
         overflow: hidden;
     }
@@ -1264,7 +1265,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(127, 255, 0, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, var(--primary-color-dark), transparent);
             animation: sweep 3s linear infinite;
         }
 
@@ -1285,7 +1286,7 @@
         font-size: 1.3rem;
         font-weight: 800;
         color: var(--primary-color);
-        text-shadow: 0 0 20px rgba(127, 255, 0, 0.5);
+        text-shadow: 0 0 20px var(--secondary-color);
         position: relative;
         z-index: 1;
     }
@@ -1355,7 +1356,7 @@
         backdrop-filter: blur(20px);
         border-radius: 16px;
         padding: 1.5rem;
-        border: 1px solid rgba(127, 255, 0, 0.2);
+        border: 1px solid var(--primary-color-hover);
         transition: all 0.3s ease;
         position: relative;
         min-height: 80px;
@@ -1367,8 +1368,7 @@
     }
 
         .task-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(127, 255, 0, 0.1);
+             box-shadow: 0 15px 30px var(--primary-color-dark);
         }
 
     .task-content {
@@ -1409,11 +1409,11 @@
     }
 
     .watch-history {
-        background: rgba(38, 39, 39, 0.4);
+        background: var(--secondary-color);
         backdrop-filter: blur(20px);
         border-radius: 20px;
         padding: 2rem;
-        border: 1px solid rgba(127, 255, 0, 0.2);
+        border: 1px solid var(--primary-color-dark);
         animation: slideInFromRight 0.8s ease-out;
     }
 
@@ -1424,14 +1424,14 @@
         border-radius: 12px;
         margin-bottom: 1rem;
         background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(127, 255, 0, 0.1);
+        border: 1px solid var(--accent-color);
         transition: all 0.3s ease;
         cursor: pointer;
         gap: 1rem;
     }
 
         .history-item:hover {
-            background: rgba(127, 255, 0, 0.1);
+            background: var(--primary-color-dark);
             transform: translateX(5px);
         }
 

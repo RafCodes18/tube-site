@@ -1126,9 +1126,9 @@
          <div class="links-container">
             <div class="network-txt">Network:</div>
             <div class="link-item">Announcements</div>
-            <div class="link-item">BrainBreaker.tv Discord</div>
+            <div class="link-item">PornWorship.com Discord</div>
             <div class="link-item">Support the site</div>
-            <div class="link-item">Gooner Store</div>
+            <div class="link-item">Porn Worship Merch</div>
          </div>
     </div>
 
@@ -1244,7 +1244,8 @@
                     
                     <div class="breaker"></div>
                     <a class="sb-link" asp-action="Captions" asp-controller="Home">Porn Captions</a>
-                    <a class="sb-link" asp-action="Index" asp-controller="Video" asp-route-category="Top">Top Gooners</a>
+                    <a class="sb-link" asp-action="Captions" asp-controller="Home">Goonfessions</a>
+                    <a class="sb-link" asp-action="Index" asp-controller="Video" asp-route-category="Top">Wall of Shame</a>
 
                     <div class="your-stats-container">
                 @if (Authenticate.IsAuthenticated(Context) && username != "")
@@ -1324,8 +1325,8 @@
 
             <!--STICKY TIME STAMP DURATION OF SESSION-->
             <!--FORMATS: 00:45, 05:14, 01:13:06, etc-->
-            <p class="session-duration-sticky" id="timer"></p>
-
+          @*   <p class="session-duration-sticky" id="timer"></p>
+ *@
 
 
 
@@ -1578,7 +1579,9 @@
         border-radius: 10px;
         cursor: pointer;
     }. 
-    <!-- DIAMOND AND LIKE BUTTONS -->
+    <!-- DIAMOND AND
+
+    LIKE BUTTONS -->
     .o-icon-svg {
         pointer-events: none;
         display: block;
@@ -1689,7 +1692,7 @@
 </style>
 <script>
        
-    const timerElement = document.getElementById('timer');
+@*     const timerElement = document.getElementById('timer');
 
     let visibleElapsed = parseInt(localStorage.getItem('visibleElapsed') || 0);
     let visibleStartTime = null;
@@ -1725,7 +1728,7 @@
     // Start when the page loads and is visible
     if (document.visibilityState === 'visible') {
         startTimer();
-    }
+    } *@
 
     // Optional: Clear timer if neededd d
     // localStorage.removeItem('visibleElapsed');

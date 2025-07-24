@@ -17,8 +17,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
     @@media(max-width: 500px) {
-        .vid-details-bottom-row{
-            margin-top: 20px !important;
+        .reply-box-container{
+            max-width: 100px;
+            margin-left: -40px !important;
+        }
+         .vid-details-bottom-row{
+            margin-top: 30px !important;
+        }
+        .reply-input{
+            max-width: 120px !important;
         }
         .center-footer{
           padding-bottom: 108px !important;
@@ -44,10 +51,15 @@
         }
         .comment{
             margin: 0 !important;
+            margin-top: 4px !important;
 
         }
+        .replies-container{
+            margin-top: -10px !important;
+            margin-left: -30px !important;
+        }
         .comment-content{
-            font-size: 14px !important;
+            font-size: 12px !important;
         }
         .comments-input-container{
             margin-top: 6px;
@@ -124,7 +136,7 @@
     }
     .sug-card:hover{
             z-index: 999;
-            box-shadow: 5px 5px 40px 8px var(--primary-color-card-hover) !important;
+            box-shadow: 5px 5px 40px 8px rgba(255, 133, 255, 0.22);
         }
       
         .sug-img{
@@ -142,8 +154,8 @@
         border-radius: 5px;
         background-color: #262626;
             -webkit-box-shadow: 10px 10px var(--primary-color-hover);
-            box-shadow: 5px 5px 40px 8px rgba(190, 255, 100, .2) !important;
-    }
+            box-shadow: 5px 5px 40px 8px rgba(255, 133, 255, 0.22);
+        }
 
         .vid{
             margin-left: 50px;
@@ -252,7 +264,22 @@
         #sidebar{
             margin-top: 0px !important;
         }
+
+        .comment-content{
+            max-width: 300px !important;
+        }
  
+    }
+    @@media(max-width: 500px){
+        .comment-content {
+            max-width: 180px !important;
+        }
+        .replies-container{
+            transform: scale(.90);
+        }
+        .comments-header-title-right{
+            margin: 0 !important;
+        }
     }
     @@media(min-width: 930px){
         .page-right-container{
@@ -886,23 +913,27 @@
                   
                         <!-- Reply Input Box (Initially hidden) -->
                         <div class="reply-box-container" id="reply-box-@comment.Id" style="display: none;">
-                            <div class="avatar-container reply-avatar">
-                                <div class="avatar-circle">
-                                    <span class="avatar-letter">@user.AvatarLetter <!-- GET REAL REPLY INPUT AVATAR, LOGGED IN USER--></span>
+                            <div class="avatar-container @user.Subscription_Tier  small">
+                                <div class="avatar-ring">
+                                    <div class="avatar-core">
+                                        <span>@user.AvatarLetter <!-- GET REAL REPLY INPUT AVATAR, LOGGED IN USER--></span>
+
+                                    </div>
+                                    <span class="diamondD">
+                                        <svg class="o-icon o-icon-svg " viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.06419 14.7411c-.10982-.0012-.21803-.0265-.31697-.0742-.09894-.0477-.18618-.1166-.25554-.2017L.672817 6.15741c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.5931c.06641-.10241.15756-.18643.26503-.2443.10747-.05787.2278-.08772.34985-.08679l8.695.06208c.1236.00146.2448.03333.3531.0928.1083.05946.2002.14469.2677.24815l2.4389 3.70997c.0882.13302.1318.29072.1244.4502-.0075.15947-.0655.31243-.1658.43665L8.63276 14.475c-.06879.0842-.15557.1519-.25396.1981-.0984.0462-.2059.0698-.31461.069v-.001z" fill="#37C4B3"></path>
+                                            <path d="M10.9376 5.80361L8.06418 14.743 5.08044 5.76223l-4.578103-.0335c-.012524-.16198.028313-.3236.116275-.46018L3.00522 1.59306c.06943-.10727.16597-.19429.27984-.25225l2.91083 4.4293 3.60848.02562 2.84773-4.38792c.1124.05814.2109.14485.2838.25423L15.3748 5.373c.09.13702.1332.2995.1231.46313l-4.5603-.0335v.00098z" fill="#53E7D3"></path>
+                                            <path d="M7.96372 1.29253h.00788l2.966 4.51109-5.87486-.04237 2.90098-4.46872z" fill="#B9F5ED"></path>
+                                            <path opacity=".1" d="M2.64359 6.17018s4.98999 8.46842 4.84809 8.29592L.672817 6.15639c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.59307c.06618-.10278.15723-.18719.26472-.24541.10748-.05823.22793-.08837.35016-.08765l1.97077.01379c-.12214-.00082-.24253.02917-.35.08722-.10748.05804-.19858.14226-.26488.24486l-2.3866 3.67647c-.08614.13466-.12731.29319-.11757.45275.00974.15955.06988.3119.17177.43508z" fill="#000"></path>
+                                        </svg>
+                                    </span>
                                 </div>
-                                <span class="diamondD">
-                                    <svg class="o-icon o-icon-svg " viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.06419 14.7411c-.10982-.0012-.21803-.0265-.31697-.0742-.09894-.0477-.18618-.1166-.25554-.2017L.672817 6.15741c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.5931c.06641-.10241.15756-.18643.26503-.2443.10747-.05787.2278-.08772.34985-.08679l8.695.06208c.1236.00146.2448.03333.3531.0928.1083.05946.2002.14469.2677.24815l2.4389 3.70997c.0882.13302.1318.29072.1244.4502-.0075.15947-.0655.31243-.1658.43665L8.63276 14.475c-.06879.0842-.15557.1519-.25396.1981-.0984.0462-.2059.0698-.31461.069v-.001z" fill="#37C4B3"></path>
-                                        <path d="M10.9376 5.80361L8.06418 14.743 5.08044 5.76223l-4.578103-.0335c-.012524-.16198.028313-.3236.116275-.46018L3.00522 1.59306c.06943-.10727.16597-.19429.27984-.25225l2.91083 4.4293 3.60848.02562 2.84773-4.38792c.1124.05814.2109.14485.2838.25423L15.3748 5.373c.09.13702.1332.2995.1231.46313l-4.5603-.0335v.00098z" fill="#53E7D3"></path>
-                                        <path d="M7.96372 1.29253h.00788l2.966 4.51109-5.87486-.04237 2.90098-4.46872z" fill="#B9F5ED"></path>
-                                        <path opacity=".1" d="M2.64359 6.17018s4.98999 8.46842 4.84809 8.29592L.672817 6.15639c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.59307c.06618-.10278.15723-.18719.26472-.24541.10748-.05823.22793-.08837.35016-.08765l1.97077.01379c-.12214-.00082-.24253.02917-.35.08722-.10748.05804-.19858.14226-.26488.24486l-2.3866 3.67647c-.08614.13466-.12731.29319-.11757.45275.00974.15955.06988.3119.17177.43508z" fill="#000"></path>
-                                    </svg>
-                                </span>
 
                             </div>
 
                             <div class="input-actions">
-                                <div contenteditable="true" class="reply-input"></div>
+                                <div contenteditable="true" class="reply-input" oninput="handleCharCount(this)"></div>
+                                <div class="char-count">0/80</div>
 
 
                                 <div class="reply-actions">
@@ -920,18 +951,21 @@
                                 { 
 
                                     <div class="comment reply-border" data-datePosted=@reply.DatePosted>
-                                        <div class="avatar-container">
-                                            <div class="avatar-circle">
-                                                <span class="avatar-letter">@reply.User.AvatarLetter</span>
+                                        <div class="avatar-container @reply.User.Subscription_Tier  small">
+                                            <div class="avatar-ring">
+                                                <div class="avatar-core">
+                                                    <span>@reply.User.AvatarLetter <!-- GET REAL REPLY INPUT AVATAR, LOGGED IN USER--></span>
+
+                                                </div>
+                                                <span class="diamondD">
+                                                    <svg class="o-icon o-icon-svg " viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.06419 14.7411c-.10982-.0012-.21803-.0265-.31697-.0742-.09894-.0477-.18618-.1166-.25554-.2017L.672817 6.15741c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.5931c.06641-.10241.15756-.18643.26503-.2443.10747-.05787.2278-.08772.34985-.08679l8.695.06208c.1236.00146.2448.03333.3531.0928.1083.05946.2002.14469.2677.24815l2.4389 3.70997c.0882.13302.1318.29072.1244.4502-.0075.15947-.0655.31243-.1658.43665L8.63276 14.475c-.06879.0842-.15557.1519-.25396.1981-.0984.0462-.2059.0698-.31461.069v-.001z" fill="#37C4B3"></path>
+                                                        <path d="M10.9376 5.80361L8.06418 14.743 5.08044 5.76223l-4.578103-.0335c-.012524-.16198.028313-.3236.116275-.46018L3.00522 1.59306c.06943-.10727.16597-.19429.27984-.25225l2.91083 4.4293 3.60848.02562 2.84773-4.38792c.1124.05814.2109.14485.2838.25423L15.3748 5.373c.09.13702.1332.2995.1231.46313l-4.5603-.0335v.00098z" fill="#53E7D3"></path>
+                                                        <path d="M7.96372 1.29253h.00788l2.966 4.51109-5.87486-.04237 2.90098-4.46872z" fill="#B9F5ED"></path>
+                                                        <path opacity=".1" d="M2.64359 6.17018s4.98999 8.46842 4.84809 8.29592L.672817 6.15639c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.59307c.06618-.10278.15723-.18719.26472-.24541.10748-.05823.22793-.08837.35016-.08765l1.97077.01379c-.12214-.00082-.24253.02917-.35.08722-.10748.05804-.19858.14226-.26488.24486l-2.3866 3.67647c-.08614.13466-.12731.29319-.11757.45275.00974.15955.06988.3119.17177.43508z" fill="#000"></path>
+                                                    </svg>
+                                                </span>
                                             </div>
-                                            <span class="diamondD">
-                                                <svg class="o-icon o-icon-svg " viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M8.06419 14.7411c-.10982-.0012-.21803-.0265-.31697-.0742-.09894-.0477-.18618-.1166-.25554-.2017L.672817 6.15741c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.5931c.06641-.10241.15756-.18643.26503-.2443.10747-.05787.2278-.08772.34985-.08679l8.695.06208c.1236.00146.2448.03333.3531.0928.1083.05946.2002.14469.2677.24815l2.4389 3.70997c.0882.13302.1318.29072.1244.4502-.0075.15947-.0655.31243-.1658.43665L8.63276 14.475c-.06879.0842-.15557.1519-.25396.1981-.0984.0462-.2059.0698-.31461.069v-.001z" fill="#37C4B3"></path>
-                                                    <path d="M10.9376 5.80361L8.06418 14.743 5.08044 5.76223l-4.578103-.0335c-.012524-.16198.028313-.3236.116275-.46018L3.00522 1.59306c.06943-.10727.16597-.19429.27984-.25225l2.91083 4.4293 3.60848.02562 2.84773-4.38792c.1124.05814.2109.14485.2838.25423L15.3748 5.373c.09.13702.1332.2995.1231.46313l-4.5603-.0335v.00098z" fill="#53E7D3"></path>
-                                                    <path d="M7.96372 1.29253h.00788l2.966 4.51109-5.87486-.04237 2.90098-4.46872z" fill="#B9F5ED"></path>
-                                                    <path opacity=".1" d="M2.64359 6.17018s4.98999 8.46842 4.84809 8.29592L.672817 6.15639c-.10166-.1231-.161673-.27526-.171411-.43461-.009738-.15935.0313-.31768.117215-.45224L3.00522 1.59307c.06618-.10278.15723-.18719.26472-.24541.10748-.05823.22793-.08837.35016-.08765l1.97077.01379c-.12214-.00082-.24253.02917-.35.08722-.10748.05804-.19858.14226-.26488.24486l-2.3866 3.67647c-.08614.13466-.12731.29319-.11757.45275.00974.15955.06988.3119.17177.43508z" fill="#000"></path>
-                                                </svg>
-                                            </span>
 
                                         </div>
 
@@ -980,9 +1014,9 @@
                                                 </div>
 
                                                 <div class="input-actions">
-                                                    <div contenteditable="true" class="reply-input"></div>
+                                                    <div contenteditable="true" class="reply-input" oninput="handleCharCount(this)"></div>
 
-
+                                                    <div class="char-count">0/80</div>
                                                     <div class="reply-actions">
                                                         <button class="submit-reply-btn" onclick="submitReply('@reply.Id', @Model.video.Id)">Submit</button>
                                                         <button onclick="closeReplyBox('@reply.Id')">Cancel</button>
@@ -1344,7 +1378,38 @@
 </script>
 
 
+<script>
+    function handleCharCount(inputDiv) {
+        const maxLength = parseInt(inputDiv.dataset.maxlength || 80);
+        const text = inputDiv.innerText.trim();
+        const count = text.length;
 
+        // Trim text if too long
+        if (count > maxLength) {
+            const trimmed = text.slice(0, maxLength);
+            inputDiv.innerText = trimmed;
+
+            // Move cursor to end after trimming
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.selectNodeContents(inputDiv);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        // Update counter
+        const counter = inputDiv.parentElement.querySelector(".char-count");
+        counter.textContent = `${Math.min(count, maxLength)}/${maxLength}`;
+
+        // Optional: warning color near limit
+        if (count >= maxLength - 10) {
+            counter.style.color = 'red';
+        } else {
+            counter.style.color = '#aaa';
+        }
+    }
+</script>
 
 <!-- NEW - COMMENT JS-->
  <script type="text/javascript">
@@ -1445,10 +1510,10 @@
                             </span>
                         </div>
                     </div>
-                    <div class="comment-body reply">
+                    <div class="comment-body">
                         <div class="comment-top">
                             <div class="content">
-                                <span class="comments-username">${data.comment.user.username}</span>
+                                <span class="comments-username">@@${data.comment.user.username}</span>
                                 <p class="date-posted-txt">${data.comment.formattedUploadDate}</p>
                             </div>
                             <p class="comment-content">${data.comment.content}</p>
@@ -1763,18 +1828,26 @@
 
 
     .reply-border {
-        border-radius: 0px 0px 0px 30px !important;
+        border-radius: 0px 0px 0px 40px !important;
         border-left: 1px solid #292929 !important;
         border-bottom: 1px solid #292929 !important;
+        padding-top: 5px !important;
     }
 
     .replies-container {
-        width: 100%;
-        margin-left: 5px;
-        display: flex;
+          display: flex;
         flex-direction: column;
+       
+     }
+    .comment-content{
+        max-width: 620px ;
+        word-wrap: break-word; /* Break long words */
+        overflow-wrap: break-word; /* Modern equivalent */
+        white-space: normal;
     }
-
+    .footer-box{
+        margin-top: 50px !important;
+    }
     .reply-box-container {
         margin-top: 10px;
         margin-left: 10px;
@@ -1797,7 +1870,16 @@
         border-radius: 4px;
         background: transparent;
         color: #a6a6a6 !important;
-        min-width: 270px !important;
+        min-width: 270px ;
+        max-width: 300px ;
+        word-wrap: break-word; /* Break long words */
+        overflow-wrap: break-word; /* Modern equivalent */
+        white-space: normal;
+        max-height: 100px; /* Cap height */
+        overflow-y: auto; /* Enable vertical scroll */
+        white-space: pre-wrap; /* Preserve line breaks */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .reply-actions button {
@@ -2226,8 +2308,8 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        background: rgba(127, 255, 0, 0.1);
-        outline: 1px solid rgba(127, 255, 0, 0.2);
+        background: var(--primary-color-dark);
+        outline: 1px solid var(--accent-color);
         color: var(--primary-color);
         border: none;
         border-radius: 10px;
@@ -2241,7 +2323,7 @@
     }
 
         .comment-submit:hover {
-            background-color: rgba(193, 218, 110, 0.80);
+            background: var(--accent-color-dark);
         }
 
         .comment-submit:focus {

@@ -20,6 +20,7 @@
         public bool IsPublic { get; set; }  //For full length vids that are free, but not previews
         public bool IsPreview { get; set; }// If True, returns 5 min preview, if false must be paid.
 
+        public DateTime? LastDateWatched { get; set; }
         public User user { get; set; }
 
         public string TruncatedTitle
