@@ -837,7 +837,15 @@
                 <div class="add-left">
                     <div class="avatar-container user-txt">
                         <div class="avatar-circle">
-                            <span class="avatar-letter">@user.AvatarLetter</span>
+                            <span class="avatar-letter">
+                                @if (Authenticate.IsAuthenticated(Context) || username != "freeuser")
+                                {
+                                    <p>U</p>
+                                }
+                                else{
+                                    @user.AvatarLetter
+                                }
+                            </span>
                         </div>                
                     </div>
                     <div class="comment-box">
@@ -1656,6 +1664,7 @@
 
         if (isAuthenticated) {
             const replyBox = document.getElementById(`reply-box-${commentId}`);
+                    console.log(replyBox);
 
             if (replyBox) {
                 replyBox.style.display = 'flex'; // Show the reply input box
@@ -1705,7 +1714,7 @@
 
                             }
                             replyBox.style.display = 'none'; // Optionally hide the reply box after submission
-
+                            //window.location.reload();
                         })
                         .catch(error => {
                             console.error('Error submitting reply:', error);
